@@ -25,12 +25,10 @@ jobs:
   release_to_chart_museum:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: goodsmileduck/helm-push-action@v2
-      env:
-        SOURCE_DIR: 'charts'
-        CHART_FOLDER: 'chartrepo/library'
-        FORCE: 'True'
-        CHARTMUSEUM_URL: '${{ secrets.CHARTMUSEUM_URL }}'
-        CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
-        CHARTMUSEUM_PASSWORD: '${{ secrets.CHARTMUSEUM_PASSWORD }}'  
+      - name: Push Helm Chart to ChartMuseum
+        uses: bsord/helm-push@v3
+        with:
+          access-token: ${{ secrets.HELM_API_KEY }}
+          repository-url: ${{ secrets.HARBOR_MUSEUM_URL }}
+          force: true
+          chart-folder: chart
