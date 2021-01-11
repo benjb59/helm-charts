@@ -29,7 +29,7 @@ jobs:
     - uses: goodsmileduck/helm-push-action@v2
       env:
         SOURCE_DIR: 'charts'
-        CHART_FOLDER: './charts'
+        CHART_FOLDER: 'chartrepo/library'
         FORCE: 'True'
         CHARTMUSEUM_URL: '${{ secrets.CHARTMUSEUM_URL }}'
         CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
