@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   demo-backend:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-01-11T15:55:21.581003553Z"
+    description: A Helm chart for Kubernetes
+    digest: 244daf573d387364325d4b0a7114e2e2679e8329f86f2010065ce9bb1cfc48fc
+    name: demo-backend
+    type: application
+    urls:
+    - https://github.com/benjb59/helm-charts/releases/download/demo-backend-0.1.2/demo-backend-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-01-08T13:55:34.741577165Z"
     description: A Helm chart for Kubernetes
