@@ -21,7 +21,7 @@ jobs:
           charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
-      - name: Publish Helm Charts demo-backend to my ChartMuseum
+      - name: Publish the Helm Chart demo-backend to my ChartMuseum
         uses: bsord/helm-push@v3
         with:
           username: ${{ secrets.HELM_USERNAME }}
