@@ -24,8 +24,10 @@ jobs:
       - name: Push Helm Chart to ChartMuseum
         uses: bsord/helm-push@v3
         with:
-          access-token: ${{ secrets.HELM_API_KEY }}
+          username: ${{ secrets.HELM_USERNAME }}
+          password: ${{ secrets.HELM_PASSWORD }}
           repository-url: ${{ secrets.HARBOR_MUSEUM_URL }}
+          force: true
           chart-folder: charts/demo-backend
 
     
