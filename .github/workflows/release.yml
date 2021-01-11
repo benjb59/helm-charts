@@ -15,13 +15,13 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - name: Run chart-releaser
+      - name: Publish Helm Charts on GitHub Pages with chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
         with:
           charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
-      - name: Push Helm Chart to ChartMuseum
+      - name: Publish Helm Charts demo-backend to my ChartMuseum
         uses: bsord/helm-push@v3
         with:
           username: ${{ secrets.HELM_USERNAME }}
