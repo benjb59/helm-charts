@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  release:
+  release_to_github_pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,3 +22,15 @@ jobs:
           charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
+  release_to_chart_museum:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: goodsmileduck/helm-push-action@v2
+      env:
+        SOURCE_DIR: 'charts'
+        CHART_FOLDER: './charts'
+        FORCE: 'True'
+        CHARTMUSEUM_URL: '${{ secrets.CHARTMUSEUM_URL }}'
+        CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
+        CHARTMUSEUM_PASSWORD: '${{ secrets.CHARTMUSEUM_PASSWORD }}'  
