@@ -11,7 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -27,7 +26,6 @@ jobs:
         with:
           access-token: ${{ secrets.HELM_API_KEY }}
           repository-url: ${{ secrets.HARBOR_MUSEUM_URL }}
-          force: true
-          chart-folder: charts 
+          chart-folder: charts
 
     
