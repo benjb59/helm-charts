@@ -31,4 +31,4 @@ jobs:
           access-token: ${{ secrets.HELM_API_KEY }}
           repository-url: ${{ secrets.HARBOR_MUSEUM_URL }}
           force: true
-          chart-folder: ./charts/demo-backend
+          chart-folder: charts
