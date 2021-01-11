@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  release_to_github_pages:
+  release_chart:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,13 +22,12 @@ jobs:
           charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
-  release_to_chart_museum:
-    runs-on: ubuntu-latest
-    steps:
       - name: Push Helm Chart to ChartMuseum
         uses: bsord/helm-push@v3
         with:
           access-token: ${{ secrets.HELM_API_KEY }}
           repository-url: ${{ secrets.HARBOR_MUSEUM_URL }}
           force: true
-          chart-folder: charts
+          chart-folder: charts 
+
+    
